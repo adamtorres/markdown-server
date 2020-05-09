@@ -40,12 +40,11 @@ class MarkdownConverter(object):
 
     def read_md(self, file_name):
         workingdir = os.getcwd()
-        md_file = codecs.open(
+        with codecs.open(
             os.path.join(workingdir, file_name),
             encoding=ms_encoding,
-            mode="r"
-        )
-        return md_file.read()
+            mode="r") as md_file:
+            return md_file.read()
 
     def write_html(self, body, file_name, dst):
         html_path = os.path.join(html_dir, file_name + html_extension)
@@ -57,8 +56,8 @@ class MarkdownConverter(object):
         except OSError:
             pass
 
-        html_file = codecs.open(html_path, encoding=ms_encoding, mode="w")
-        html_file.write(self.html_header + body + self.html_footer)
+        with codecs.open(html_path, encoding=ms_encoding, mode="w") as html_file:
+            html_file.write(self.html_header + body + self.html_footer)
         return html_path
 
 
