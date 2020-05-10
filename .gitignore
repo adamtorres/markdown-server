@@ -1,11 +1,9 @@
-.DS_Store
 *.py[cod]
 
 # Packages
 *.egg
 *.egg-info
 markdownserver.dat
-.venv
 dist
 build
 docs/_build
@@ -25,6 +23,8 @@ pip-log.txt
 .coverage
 .tox
 nosetests.xml
+/htmlcov
+
 
 # Translations
 *.mo
@@ -33,6 +33,33 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-.idea
 .projectile
 .ropeproject
+
+
+# Random things that looks ok to include here.
+.*.sw[op]
+/.pytest_cache/
+/.tags
+/.cache/
+/TAGS
+
+
+# pyenv etc
+.python-version
+.venv
+
+# dotenv
+.env
+
+# Pycharm
+.idea/
+
+# Mac
+.DS_store
+
+# Static Files
+public/
+
+# Tmp Files
+tmp/
