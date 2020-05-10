@@ -25,17 +25,49 @@ class MarkdownConverter(object):
             </style>
             </head>
             <body>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+  </label>
+</div>
+            <div class='body'>
             <div class='markdown-body'>
             """
         )
         self.html_footer = """
             </div>
+            </div>
+<script>
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark'); //add this
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light'); //add this
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
             </body>
             </html>
             """
 
     def convert(self, src, dst=""):
-        code = md.markdown(self.read_md(src), extensions=[markdown_type])
+        code = md.markdown(self.read_md(src), extensions=markdown_type)
         return self.write_html(code, src, dst)
 
     def read_md(self, file_name):

@@ -43,7 +43,7 @@ class MarkdownConverter(object):
             '''
 
     def convert(self,src,dst=""):
-        code = md.markdown(self.read_md(src), extensions=[markdown_type])
+        code = md.markdown(self.read_md(src), extensions=markdown_type)
         return self.write_html(code,src,dst)
 
     def read_md(self,file_name):
