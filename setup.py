@@ -32,7 +32,7 @@ setup(
     include_package_data=True,
     keywords=["web", "markdown"],
     license="MIT License",
-    install_requires=["bottle", "Markdown==2.6.11", "Pygments", "py-gfm", "mdx_outline"],
+    install_requires=["bottle", "Markdown", "Pygments", "mdx_outline"],
     entry_points={
         "console_scripts": [
             "markdownserver=markdownserver:main",
