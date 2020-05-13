@@ -1,9 +1,13 @@
-bottle==0.12.8
-linecache2==1.0.0
-Markdown==2.6.2
-py-gfm==0.1.0
+bottle
+linecache2
+Markdown
+# The pypi py-gfm does not support Markdown>=3 and hasn't had a commit in 2yrs.
+# Someone recently made changes on a fork and submitted a PR.
+# PR at https://github.com/Zopieux/py-gfm/pull/19
+git+https://github.com/ChanTsune/py-gfm@c974dfa10ab92e3110c9dd524d4b13f2eb119999#egg=py-gfm
 git+https://github.com/adamtorres/pygments@localcustomizations#egg=Pygments
-six==1.9.0
-traceback2==1.4.0
-unittest2==1.0.1
+six
+traceback2
+unittest2
 mdx_outline
+pymdown-extensions
